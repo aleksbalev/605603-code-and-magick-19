@@ -61,17 +61,17 @@ window.renderStatistics = function (ctx, names, times) {
     }
 
     ctx.fillRect(
-      calcAxisOrientationX + (BAR_WIDTH + FONT_WIDTH + CLOUD_Y) * i,
-      calcDobleCloudX,
-      BAR_WIDTH,
-      -calcBarHeight
+        calcAxisOrientationX + (BAR_WIDTH + FONT_WIDTH + CLOUD_Y) * i,
+        calcDobleCloudX,
+        BAR_WIDTH,
+        -calcBarHeight
     );
 
     ctx.fillStyle = '#000';
     ctx.fillText(
-      Math.round(times[i]),
-      calcAxisOrientationX + calCloudsMinus * i,
-      calcDobleCloudX - CLOUD_Y - calcBarHeight
+        Math.round(times[i]),
+        calcAxisOrientationX + calCloudsMinus * i,
+        calcDobleCloudX - CLOUD_Y - calcBarHeight
     );
   }
 };
