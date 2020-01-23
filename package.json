@@ -12,7 +12,9 @@
   },
   "devDependencies": {
     "eslint": "6.3.0",
-    "eslint-config-htmlacademy": "0.5.2"
+    "eslint-config-htmlacademy": "0.5.2",
+    "prettier": "github:j-f1/prettier#space-after-function",
+    "prettier-miscellaneous": "^1.5.3"
   },
   "license": "MIT",
   "dependencies": {},
