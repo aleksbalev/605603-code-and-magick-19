@@ -16,21 +16,21 @@ var getRandom = function (list) {
   return list[Math.floor(Math.random() * list.length)];
 };
 
-var createWizards = function () {
+var createWizards = function (wizardsCount) {
   var wizards = [];
 
-  for (var i = 0; i < 4; i++) {
-    wizards[i] = {
+  for (var i = 0; i < wizardsCount; i++) {
+    wizards.push({
       name: getRandom(WIZARD_NAMES) + ' ' + getRandom(WIZRD_SURNAMES),
       coatColor: getRandom(COAT_COLORS),
       eyesColor: getRandom(EYES_COLORS)
-    };
+    });
   }
 
   return wizards;
 };
 
-var wizards = createWizards();
+var wizards = createWizards(4);
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
