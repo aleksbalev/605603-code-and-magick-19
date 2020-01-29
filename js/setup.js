@@ -16,28 +16,21 @@ var getRandom = function (list) {
   return list[Math.floor(Math.random() * list.length)];
 };
 
-var wizards = [
-  {
-    name: getRandom(WIZARD_NAMES) + ' ' + getRandom(WIZRD_SURNAMES),
-    coatColor: getRandom(COAT_COLORS),
-    eyesColor: getRandom(EYES_COLORS)
-  },
-  {
-    name: getRandom(WIZARD_NAMES) + ' ' + getRandom(WIZRD_SURNAMES),
-    coatColor: getRandom(COAT_COLORS),
-    eyesColor: getRandom(EYES_COLORS)
-  },
-  {
-    name: getRandom(WIZARD_NAMES) + ' ' + getRandom(WIZRD_SURNAMES),
-    coatColor: getRandom(COAT_COLORS),
-    eyesColor: getRandom(EYES_COLORS)
-  },
-  {
-    name: getRandom(WIZARD_NAMES) + ' ' + getRandom(WIZRD_SURNAMES),
-    coatColor: getRandom(COAT_COLORS),
-    eyesColor: getRandom(EYES_COLORS)
+var createWizards = function () {
+  var wizards = [];
+
+  for (var i = 0; i < 4; i++) {
+    wizards[i] = {
+      name: getRandom(WIZARD_NAMES) + ' ' + getRandom(WIZRD_SURNAMES),
+      coatColor: getRandom(COAT_COLORS),
+      eyesColor: getRandom(EYES_COLORS)
+    };
   }
-];
+
+  return wizards;
+};
+
+var wizards = createWizards();
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
