@@ -3,11 +3,21 @@
 var ESC_KEY = 'Escape';
 var ENTER_KEY = 'Enter';
 
+/* Массивы имен и цветов */
+var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+var WIZRD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+/* Массивы имен и цветов */
+
 /* Селекторы для открытия и закрытия настроек персонажа */
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
 /* Селекторы для открытия и закрытия настроек персонажа */
+
+var setupWizardName = setup.querySelector('.setup-user-name');
 
 /* Селекторы для настройки цветов по нажатию на волшебника */
 var setupPlayer = document.querySelector('.setup-player');
@@ -23,18 +33,7 @@ var attributeEyes = setupPlayer.querySelector('[name=\'eyes-color\']');
 var attributeFireball = wizardFireball.querySelector('[name=\'fireball-color\']');
 /* Селекторы по аттрибутам для невидимых инпутов */
 
-/* Массивы имен и цветов */
-var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var WIZRD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
-var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-/* Массивы имен и цветов */
-
 /* Активация темплейта похожих магов */
-var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
-
 var similarListElement = document.querySelector('.setup-similar-list');
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
@@ -97,8 +96,13 @@ var openPopup = function () {
 };
 
 var closePopup = function () {
-  setup.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscPress);
+  if (setupWizardName === document.activeElement) {
+    onPopupEscPress(null);
+  } else {
+    setup.classList.add('hidden');
+    document.removeEventListener('keydown', onPopupEscPress);
+  }
+
 };
 
 setupOpen.addEventListener('click', function () {
