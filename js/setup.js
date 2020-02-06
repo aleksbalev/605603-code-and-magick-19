@@ -96,13 +96,10 @@ var openPopup = function () {
 };
 
 var closePopup = function () {
-  if (setupWizardName === document.activeElement) {
-    onPopupEscPress(null);
-  } else {
+  if (setupWizardName !== document.activeElement) {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
   }
-
 };
 
 setupOpen.addEventListener('click', function () {
