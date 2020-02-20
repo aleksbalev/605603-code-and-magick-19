@@ -18,11 +18,14 @@
     return list[Math.floor(Math.random() * list.length)];
   };
 
+  var setupDialogElement = document.querySelector('.setup');
+
   window.utils = {
     ESC_KEY: ESC_KEY,
     ENTER_KEY: ENTER_KEY,
     COAT_COLORS: COAT_COLORS,
     EYES_COLORS: EYES_COLORS,
-    getRandom: getRandom
+    getRandom: getRandom,
+    setupDialogElement: setupDialogElement
   };
 })();

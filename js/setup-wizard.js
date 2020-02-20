@@ -3,6 +3,7 @@
 (function () {
   var EYES_COLORS = window.utils.EYES_COLORS;
   var COAT_COLORS = window.utils.COAT_COLORS;
+  var setupDialogElement = window.utils.setupDialogElement;
   var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
   var getRandom = window.utils.getRandom;
@@ -38,4 +39,13 @@
     attributeFireball.value = randomColor;
   });
   /* Обработчики событий по изменению настроек мага (цвет - глаз, мантии, фаербола) */
+
+  var form = setupDialogElement.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), function () {
+      setupDialogElement.classList.add('hidden');
+    });
+
+    evt.preventDefault();
+  });
 })();
